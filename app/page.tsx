@@ -1,27 +1,32 @@
-export default function Home() {
-  const text = 'text';
-  const obj = {
-    name: 1,
-    test: 2,
-    'object-curly-spacing': [ 'error', 'always', ],
-  };
-  const arr = [ 1, 2, ];
+import Chat from '@/components/Chat/Chat';
 
-  const obj2 = {
-    a: 1,
-    b:2,
-		
+export default function PageChatroom() {
+  const user = {
+    name: 'Emilia Solntseva',
+    credits: 30,
+    imageUser: '/images/users/user1.png',
+    imageFlag: '/images/flags/flag1.png',
+    rate: 30,
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20"
-      data-id="2">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h1>{ text }</h1>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <h1>Footer</h1>
-      </footer>
+    <div
+      className="flex flex-col grow"
+    >
+      <div className="flex items-center justify-between mb-[32px]">
+        <h1 className="font-[300]">Chatroom</h1>
+
+        <div className="flex flex-col items-end">
+          <span className="text-[#CDD1E4]">In your account now</span>
+          <div className="flex items-center text-[20px]"><span className="text-purple text-[24px] font-[700] mr-[10px]">{ 550 }</span><span>credits</span></div>
+        </div>
+      </div>
+
+      <Chat
+        user={ user }
+        className="grow w-[986px] mx-auto"
+      />
+
     </div>
   );
 }

@@ -1,0 +1,24 @@
+@use "tailwindcss";
+
+@theme {
+	--breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+	--breakpoint-lg: 830px;
+	--breakpoint-xl: 830px;
+	--breakpoint-2xl: 1400px;
+
+	--text-base: 14px;
+
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--color-purple: #A073E4;
+	--color-blue: #010827;
+	--color-blue-light: #414AF1;
+	--color-blue-bg: #0e1532;
+}
+
+@utility container{
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
