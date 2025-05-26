@@ -1,20 +1,35 @@
-import Image from 'next/image';
+'use client';
 
+import Image from 'next/image';
+import { useContext, } from 'react';
+
+import { TAppState, AppStateContext, } from '@/providers/AppStateProvider';
 import { cn, } from '@/utils/cn';
 
 import IconClock from '../Icons/IconClock';
 
 import ChatMessages from './ChatMessages/ChatMessages';
 import Input from './Input/Input';
+import ModalOutOfCredits from './ModalOutOfCredits/ModalOutOfCredits';
 
 import { TUser, } from '@/types/TUser';
-
 type Chat = {
   className ?: string;
   user : TUser;
 };
 
 const Chat = ( { className, user, } : Chat, ) => {
+  const context = useContext( AppStateContext, );
+  if ( !context ) throw new Error( 'Modal must be used within AppStateProvider', );
+  const { appState, setAppState, } = context;
+
+  const handleStopChatClick = () => {
+    setAppState?.( ( prevState : TAppState, ) => ( {
+      ...prevState,
+      modalContent: <ModalOutOfCredits />,
+    } ), );
+  };
+
   return (
     <div
       className={ cn( [
@@ -80,7 +95,10 @@ const Chat = ( { className, user, } : Chat, ) => {
             <span className="text-[16px] text-[#CDD1E4]"><b>3 min</b> left</span>
           </div>
 
-          <button className="flex items-center bg-[#1a213c] h-[48px] rounded-[64px] px-[24px]">
+          <button
+            onClick={ handleStopChatClick }
+            className="flex items-center bg-[#1a213c] h-[48px] rounded-[64px] px-[24px]"
+          >
             <div className="flex w-[12px] h-[12px] bg-[#d7bd8c] rounded-[2px] mr-[12px]"></div>
             <span className="text-[16px] text-[#CDD1E4]">Stop chat</span>
           </button>

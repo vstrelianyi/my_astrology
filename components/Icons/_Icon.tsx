@@ -1,7 +1,7 @@
 // https://freeicons.io/search
 
 // STYLES
-import { clsx, } from 'clsx';
+import { cn, } from '@/utils/cn';
 
 // TYPES
 import { TIconProps, } from '@/types/TIcon';
@@ -9,7 +9,7 @@ import { TIconProps, } from '@/types/TIcon';
 const Icon = ( { className, fill = '#000000', stroke, width = '32', height = '32', } : TIconProps, ) => {
   return (
     <svg
-      className={ clsx( [ className, 'icon', ], ) }
+      className={ cn( [ className, 'icon', ], ) }
       width={ width }
       height={ height }
       xmlns="http://www.w3.org/2000/svg"
