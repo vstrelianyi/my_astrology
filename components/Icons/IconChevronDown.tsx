@@ -3,6 +3,7 @@ import { TIconProps, } from '@/types/TIcon';
 const IconChevronDown = ( {} : TIconProps, ) => {
   return (
     <svg
+      // stroke="white"
       width="16"
       height="9"
       viewBox="0 0 16 9"
@@ -11,7 +12,6 @@ const IconChevronDown = ( {} : TIconProps, ) => {
     >
       <path
         d="M14.5 1L8 7.5L1.5 1"
-        stroke="white"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

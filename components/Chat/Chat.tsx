@@ -32,21 +32,31 @@ const Chat = ( { className, user, } : Chat, ) => {
         <div className="flex justify-between items-center">
           { user && (
             <div className="flex gap-[16px]">
-              <Image
-                src={ user?.imageUser }
-                alt="user"
-                width={ 48 }
-                height={ 48 }
-              />
+
+              { typeof user?.imageUser === 'string' ? (
+                <Image
+                  src={ user?.imageUser }
+                  alt="user"
+                  width={ 48 }
+                  height={ 48 }
+                />
+              ) : (
+                <div className="flex items-center justify-center bg-[#161c38] rounded-full h-[48px] w-[48px]">
+                  <span className="text-[20px]">{ user?.name[0] }</span>
+                </div>
+              ) }
+
               <div className="flex flex-col">
                 <div className="flex items-center gap-[16px]">
-                  <Image
-                    src={ user?.imageFlag }
-                    alt="flag"
-                    width={ 20 }
-                    height={ 16 }
-                    className="w-[20px] h-[16px]"
-                  />
+                  { user?.imageFlag && (
+                    <Image
+                      src={ user?.imageFlag }
+                      alt="flag"
+                      width={ 20 }
+                      height={ 16 }
+                      className="w-[20px] h-[16px]"
+                    />
+                  ) }
                   <span className="text-[20px]">{ user?.name }</span>
                 </div>
                 <div className="flex gap-[8px]">

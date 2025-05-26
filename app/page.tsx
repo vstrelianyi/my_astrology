@@ -17,7 +17,7 @@ export default function PageChatroom() {
         <h1 className="font-[300]">Chatroom</h1>
 
         <div className="flex flex-col items-end">
-          <span className="text-[#CDD1E4]">In your account now</span>
+          <span className="text-[#CDD1E4] opacity-50">In your account now</span>
           <div className="flex items-center text-[20px]"><span className="text-purple text-[24px] font-[700] mr-[10px]">{ 550 }</span><span>credits</span></div>
         </div>
       </div>

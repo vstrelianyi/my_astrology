@@ -1,0 +1,17 @@
+.Nav {
+	display: flex;
+
+	:global(.nav-text) {
+		:global(.nav-text-bold) {
+			visibility: hidden;
+		}
+		&:hover {
+			:global(.nav-text-base) {
+				visibility: hidden;
+			}
+			:global(.nav-text-bold) {
+				visibility: visible;
+			}
+		}
+	}
+}

@@ -8,7 +8,7 @@ const IconPlus = ( {} : TIconProps, ) => {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      stroke="#D7BD8C"
+      // stroke="#D7BD8C"
     >
       <path
         d="M4.16406 10H15.8307"
