@@ -1,11 +1,14 @@
-import clsx from 'clsx';
-import { Open_Sans, } from 'next/font/google';
+import {
+  Open_Sans,
+  // Montserrat,
+} from 'next/font/google';
 
 import '@/globals.scss';
 import Footer from '@/components/Footer/Footer';
 import Modal from '@/components/Modal/Modal';
 import Nav from '@/components/Nav/Nav';
 import { AppStateProvider, } from '@/providers/AppStateProvider';
+import { cn, } from '@/utils/cn';
 
 import type { Metadata, } from 'next';
 
@@ -13,6 +16,12 @@ const openSans = Open_Sans( {
   subsets: [ 'latin', ],
   weight: [ '300', '400', '500', '600', '700', ],
 }, );
+
+// const montserrat = Montserrat( {
+//   subsets: [ 'latin', ],
+//   weight: [ '300', '400', '500', '600', '700', ],
+//   variable: '--font-montserrat',
+// }, );
 
 export const metadata : Metadata = {
   title: 'My Astrology',
@@ -26,17 +35,22 @@ export default function RootLayout( {
 }>, ) {
   return (
     <html lang="en">
-      <body className={ clsx( [ openSans.className, 'container', 'bg-blue', 'text-white', ], ) }>
-        <Nav className="mb-[24px]"/>
+      <body
+        className={ cn(
+          openSans.className,
+          'container', 'bg-blue', 'text-white', 'min-h-screen',
+        ) }
+      >
+        <Nav className="hidden xl:flex mb-[24px]"/>
         <AppStateProvider>
-          <main className="flex flex-col min-h-[80vh]">
+          <main className="flex flex-col h-full xl:h-auto xl:min-h-[80vh]">
             { children }
           </main>
 
           <Modal />
         </AppStateProvider>
 
-        <Footer className=""/>
+        <Footer className="hidden xl:flex"/>
       </body>
     </html>
   );

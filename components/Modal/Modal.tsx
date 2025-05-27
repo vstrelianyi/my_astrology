@@ -30,26 +30,27 @@ const Modal = ( { className, children, } : TModalProps, ) => {
     <>
       <div
         className={ cn(
+          'Modal',
           'fixed z-2 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
-          'min-w-[700px] max-w-[1000px] h-[80vh]',
-          'rounded-[32px]',
+          'min-w-[100%] xl:min-w-[900px] xl:max-w-[98vw]',
+          'rounded-[32px] px-[20px] py-[40px] xl:p-[40px]',
           'flex flex-col',
           'bg-blue',
           className,
         ) }
       >
-        <div className="relative grow pt-[70px]">
-          <button
-            className="absolute top-[40px] right-[40px]"
-            onClick={ handleCloseModal }
-          >
-            <IconClose/>
-          </button>
+        <button
+          className="absolute z-1 top-[40px] right-[40px]"
+          onClick={ handleCloseModal }
+        >
+          <IconClose/>
+        </button>
 
+        <div className="relative grow">
           { appState?.modalContent }
           { children }
-
         </div>
+
       </div>
 
       <Overlay />

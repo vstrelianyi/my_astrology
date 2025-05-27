@@ -6,11 +6,11 @@ import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 
 import localPlugin from './rules/index.mjs';
-const __filename = fileURLToPath( import.meta.url );
-const __dirname = dirname( __filename );
+const __filename = fileURLToPath( import.meta.url, );
+const __dirname = dirname( __filename, );
 const compat = new FlatCompat( {
   baseDirectory: __dirname,
-} );
+}, );
 
 /** @type {import('eslint').Linter.Config} */
 const eslintConfig = [
@@ -83,6 +83,7 @@ const eslintConfig = [
         'before': false,
         'after': false,
       }, ],
+      'template-curly-spacing': [ 'error', 'always', ],
       '@stylistic/no-extra-semi': 'error',
       '@stylistic/arrow-parens': [ 'error', 'always', ],
       '@stylistic/type-annotation-spacing': [
@@ -179,6 +180,6 @@ const eslintConfig = [
       // func
       '@stylistic/space-in-parens': [ 2, 'always', ],
     },
-  } ),
+  }, ),
 ];
 export default eslintConfig;

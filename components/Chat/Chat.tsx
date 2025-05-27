@@ -46,7 +46,7 @@ const Chat = ( { className, user, } : Chat, ) => {
       <div className="flex flex-col">
         <div className="flex justify-between items-center">
           { user && (
-            <div className="flex gap-[16px]">
+            <div className="flex gap-[16px] shrink-0">
 
               { typeof user?.imageUser === 'string' ? (
                 <Image
@@ -72,22 +72,31 @@ const Chat = ( { className, user, } : Chat, ) => {
                       className="w-[20px] h-[16px]"
                     />
                   ) }
-                  <span className="text-[20px]">{ user?.name }</span>
+                  <span className="text-[12px] xl:text-[20px]">{ user?.name }</span>
                 </div>
-                <div className="flex gap-[8px]">
+                <div className="flex gap-[8px] text-[12px]">
                   <span className="text-[#D7BD8C] font-[700]">{ user?.rate }</span>
                   <span className="text-[#CDD1E4]">credits/minute</span>
                 </div>
               </div>
+
             </div>
           ) }
 
-          <div className="flex items-end justify-end gap-[8px]">
+          <div className="hidden xl:flex items-end justify-end gap-[8px]">
             <span className="text-[32px] leading-[1]">00:15</span><span className="text-[16px] leading-[1] text-[#CDD1E4]">min</span>
           </div>
+
+          <div className="flex xl:hidden flex-col items-end">
+            <span className="text-[#CDD1E4] text-[12px] opacity-50">In your account now</span>
+            <div className="flex items-center text-[14px]">
+              <span className="text-purple font-[700] mr-[6px]">{ 550 }</span><span>credits</span>
+            </div>
+          </div>
+
         </div>
 
-        <div className="flex gap-[16px] items-center self-end">
+        <div className="hidden xl:flex gap-[16px] items-center self-end">
           <div className="flex items-center gap-[8px]">
             <div className="flex items-center justify-center bg-[#161c38] rounded-full h-[40px] w-[40px]">
               <IconClock />
@@ -110,7 +119,10 @@ const Chat = ( { className, user, } : Chat, ) => {
       <ChatMessages user={ user } />
 
       { /* BOTTOM */ }
-      <Input placeholder="Type your text here" />
+      <Input
+        className="mt-[20px]"
+        placeholder="Type your text here"
+      />
     </div>
   );
 };

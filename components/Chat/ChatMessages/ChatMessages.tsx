@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import ImageUser from '@/components/Chat/ImageUser/ImageUser';
 import IconTaurus from '@/components/Icons/IconTaurus';
 import { cn, } from '@/utils/cn';
@@ -28,7 +26,7 @@ const Message = ( { message, isUser, user, isFirstMessageByUser, } : TMessage, )
     >
 
       { isFirstMessageByUser && (
-        <div className="flex gap-[16px]">
+        <div className="flex gap-[16px] pt-[36px] xl:pt-0">
 
           <ImageUser
             imageUser={ user?.imageUser }
@@ -53,7 +51,7 @@ const Message = ( { message, isUser, user, isFirstMessageByUser, } : TMessage, )
         </div>
       ) }
 
-      <div className="flex flex-col items-start gap-[16px] max-w-[50%]">
+      <div className="flex flex-col items-start gap-[16px] xl:max-w-[50%]">
         <span
           className={ cn(
             'text-[14px] text-[#CDD1E4] px-[20px] py-[16px]',
